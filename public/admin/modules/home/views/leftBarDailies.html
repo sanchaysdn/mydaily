@@ -1,0 +1,151 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" class="ng-scope">
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li ng-class="{'active': locationPage === 'dailies'}" ng-if="user_level=='Contractor'" class="myDailyLink">
+                <a ui-sref="dailies">
+                    <span>&nbsp;&nbsp;&nbsp;My Dailies</span>
+                </a>
+            </li>
+            <li ng-class="{'active': locationPage === 'incident'}" ng-if="user_level=='Contractor'" class="incidentLink">
+                <a ui-sref="incident">
+                    <span>&nbsp;&nbsp;Incidents</span>
+                </a>
+            </li>
+            <!-- Optionally, you can add icons to the links -->
+            <!-- <li ng-class="{'active': locationPage === 'dashboard' }"><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li> -->
+            <li class="treeview user-mang" ng-class="{'active': locationPage === 'supervisor' || locationPage === 'foremen' || locationPage === 'subcontractor' || locationPage === 'users' || locationPage === 'subscription'}">
+                <a href="javascript:void();">
+                    <span>User Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li ng-class="{'active': locationPage === 'users'}" ng-if="user_level=='ADMIN'">
+                        <a ui-sref="users">Manage Contractors</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'subscription'}" ng-if="user_level=='ADMIN'">
+                        <a ui-sref="subscription">Manage Subscriptions</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'supervisor'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="supervisor">Manage Supervisors</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'foremen'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="foremen">Manage Foremen</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'subcontractor'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="subcontractor">Manage Subcontractors</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li ng-class="{'active': locationPage === 'job' || locationPage === 'newJob'}" ng-if="user_level=='Contractor'" class="newLink">
+                <a ui-sref="job">
+                    <span>&nbsp;&nbsp;&nbsp;Jobs</span>
+                </a>
+            </li>
+            <li ng-class="{'active': locationPage === 'billableItems'}" ng-if="user_level=='Contractor'">
+                <a ui-sref="billableItems">
+                    <i class="fa fa-briefcase"></i>
+                    <span>Billable Items</span>
+                </a>
+            </li>
+            <br><br>
+        
+        <ul class="sidebar-menu" ng-init="getForemenReport()">
+        <!--     <li>
+                <a href="javascript:void();">
+                    <span>xyz</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <div class="treeview-menu">
+                    <input type="text" name="">
+                </div>
+            </li> -->
+        <!--     <li class="treeview user-mang">
+                <a href="javascript:void();">
+                    <span>ABCD</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a> --> 
+             
+                <ul class="treeview-menu">
+                    <li ng-class="{'active': locationPage === 'users'}" ng-if="user_level=='ADMIN'">
+                        <a ui-sref="users">Manage Contractors</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'subscription'}" ng-if="user_level=='ADMIN'">
+                        <a ui-sref="subscription">Manage Subscriptions</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'supervisor'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="supervisor">Manage Supervisors</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'foremen'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="foremen">Management Foremen</a>
+                    </li>
+                    <li ng-class="{'active': locationPage === 'subcontractor'}" ng-if="user_level=='Contractor'">
+                        <a ui-sref="subcontractor">Manage Subcontractors</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+            <br><br>
+
+       <!-- <div>
+                <table>    
+                <tr ng-repeat= "users in workReportList">
+                    <td ng-click="showWorkReport(users)"> <span style="color: red" ng-if='users.longitude == 0'>&#11044</span> <span style="color: green" ng-if='users.longitude == 1'> &#11044</span>{{users.job_added_by.firstname}} {{users.job_added_by.lastname}} 
+  <span  ng-if='users.longitude == 0'>{{users.actual_end_date | date:'dd MM yyyy'}} </span>
+  
+                    </td>
+                </tr>
+                </table>
+            </div> -->
+
+
+
+
+
+
+
+
+
+            <div class="crews_daily">
+                <h5> CREW'S DAILIES</h5>
+                <table class="table">
+
+                <tr ng-repeat= "users in workReportList">
+                     <td ng-if="user._id == users.contractor" ng-click="showWorkReport(users)" ><span class="notifi_red" ng-if='users.assigned_job.delay > "0"'>{{users.assigned_job.delay.length}} </span> <span class="notifi_green" ng-if='users.assigned_job.delay==0'><i class="fa fa-check"></i></span>{{users.userName}} 
+  <!-- <span  ng-if='users.assigned_job.delay> "0"' > </span> -->
+    <span class="rt-arrow" ><i class="fa fa-angle-right"></i></span>
+
+  <span class="rt-arrow" ng-if='users.assigned_job.delay> "0"'> {{users.assigned_job.delay[0].createdAt| date:'dd MMM '}} <br></span>
+  
+                    </td> 
+                </tr>
+                </table>
+            </div>
+
+
+
+
+<!-- 
+            <li ng-class="{'active': locationPage === 'paymentList'}" ng-if="user_level=='ADMIN'">
+                <a ui-sref="paymentList">
+                    <i class="fa fa-briefcase"></i>
+                    <span>Payment List</span>
+                </a>
+            </li>
+            <li ng-class="{'active': locationPage === 'cms'}" ng-if="user_level=='ADMIN'">
+                <a ui-sref="cms">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                    <span>&nbsp;&nbsp;&nbsp;Manage CMS</span>
+                </a>
+            </li>
+        </ul> -->
+        <!-- /.sidebar-menu -->
+    </section><br><br><br><br><br>
+       
+    <!-- /.sidebar -->
+     <!-- <h5> Customer ID: {{user.customer_id}} </h5>  -->
+</aside>

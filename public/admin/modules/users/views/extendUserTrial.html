@@ -1,0 +1,91 @@
+<div class="wrapper" ng-init="stripeCard();">
+    <section class="welcome">
+        <!-- Your Page Content Here -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="slide-text slide_style_center">
+                    <h1> Extend User Trail </h1>
+                    <p>Make change at any time</p>
+
+
+                    <div class="col-md-12 ">
+                        <div class="slider">
+                            <div class="pricbox">
+                                <form class="form-horizontal" role="form">
+                                    <div class="price-slider">
+                                        <div class="col-md-12 col-xs-12 ">
+                                            <div id="slider"></div>
+                                            <h3>I want to extend the trial for
+                                                <span id="count">{{count}}</span> days
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-xs-12">
+                        <div class="welcome_btn">
+                            <!-- <div style="display: inline-block; vertical-align: top">
+                                <a href="" ng-click="ShowHide()" class="btn btn-success">Go!</a>
+                            </div>
+                            <div style="display: inline-block; vertical-align: top; padding: 6px">
+                                <span>or</span>
+                            </div> -->
+                            <div style="display: inline-block; vertical-align: top">
+                                <a href="" ng-model="count" data-ng-click="extendUserTrial(count)" class="btn btn-default">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div><button type="submit" class= "btn-success" ng-click="goBack()"> Go back</button></div> -->
+                    
+                
+                <div class="col-md-4"></div>
+                <div class="col-md-4 col-xs-12">
+                    <div ng-show="IsVisible" class="payment_box">
+                        <div class="head">
+                            Payment Detail
+                        </div>
+                        <div class="pay">
+                            <form role="form" role="form" novalidate name="form">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label class="control-label">Stripe Card Detail</label>
+                                        <div id="card-element"></div>
+                                        <div id="card-errors" role="alert"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12" style="width: 90%; margin-left: 20px;">
+                                        <!-- <a href="#" class="btn btn-success" style="width: 100%;">Pay Now</a> -->
+                                        <button type="submit" class="btn btn-success" ng-disabled="disabled" data-ng-click="payNow(form)">Pay Now
+                                            <i class="fa fa-spinner fa-spin" ng-if="loader"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <p style="text-align: center; font-size: 14px; font-weight: 300;"> We are deducting payments on the 1st of the following month.</p> -->
+
+        </div>
+
+    </section>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- ./wrapper -->
+<style>
+    .text-danger {
+        color: #a94442 !important;
+    }
+</style>

@@ -1,0 +1,28 @@
+{
+  "name": "neobook",
+  "authors": [
+    "neobook"
+  ],
+  "description": "neobook",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "angularjs#~1.4.8",
+    "angular-resource": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "jquery-ui": "~1.11.4",
+    "oclazyload": "~1.0.5",
+    "ng-table": "^0.8.3",
+    "angular-rating": "^3.1.0",
+    "angular-ui-tinymce": "0.0.18",
+    "angular-sanitize": "^1.6.3",
+    "highcharts-ng": "^1.1.0",
+    "angularjs-slider": "^6.4.0",
+    "angular-moment": "^1.0.1",
+    "nya-bootstrap-select": "^2.4.0",
+    "moment": "^2.18.1",
+    "npm": "^5.6.0",
+    "angular-daterangepicker": "^0.2.2"
+  }
+}

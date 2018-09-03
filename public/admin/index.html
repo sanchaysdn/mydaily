@@ -1,0 +1,141 @@
+<!-- header start -->
+<!DOCTYPE html>
+<html ng-app='neoApp'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MyDaily Admin</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-select.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/fontstatic.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../assets/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+              page. However, you can choose any other skin. Make sure you
+              apply the skin class to the body tag so the changes take effect.
+        -->
+    <link rel="stylesheet" href="../assets/css/skin-blue.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap-daterangepicker/daterangepicker.css" />
+
+    <link href="../assets/css/ng-table.min.css" rel="stylesheet">
+    <link href="../assets/css/logger.css" rel="stylesheet">
+    <link href="../assets/fancybook/jquery.fancybox.css?v=2.1.6" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css" rel="stylesheet" type="text/css" />
+
+
+
+    <!-- JS Lib files start -->
+    <script type="text/javascript" src="../assets/js/jQuery-2.1.4.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script src="/admin/javascripts/themejs/app.js"></script>
+    <script src="/admin/javascripts/themejs/tutorial.js"></script>
+    <script src="/admin/javascripts/themejs/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="../bower_components/tinymce/tinymce.js"></script>
+    <script type="text/javascript" src="../assets/js/angularjs.min.1.4.8.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js">
+    </script>
+    <script src="../bower_components/angular-credit-cards/release/angular-credit-cards.js"></script>
+    <script type="text/javascript" src="../assets/js/angular-route.min.js"></script>
+    <script type="text/javascript" src="../assets/js/logger.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="../assets/js/ngStorage.min.js"></script>
+    <script type="text/javascript" src="../assets/js/ng-table.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="../assets/fancybook/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="../assets/js/ui-bootstrap-tpls-1.1.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.raty.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+
+    <script type="text/javascript" src="../assets/js/stripe-v3.js"></script>
+    <script type="text/javascript" src="../bower_components/nya-bootstrap-select/dist/js/nya-bs-select.min.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js"></script>
+
+    <script type="text/javascript" src="../assets/js/angular-cookies.js"></script>
+    <!-- <script type="text/javascript" src="../bower_components/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="../bower_components/highcharts-ng/highcharts-ng.js"></script> -->
+
+    <!-- date rangepicker -->
+    <!-- <script type="text/javascript" src="../bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js"></script> -->
+
+    <!-- <script type="text/javascript" src="../bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script> -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/infowindow.css">
+
+    <link rel="stylesheet" href="stylesheets/sweetalert.min.css">
+    <script data-cfasync="false" src="javascripts/sweetalert.min.js" type="text/javascript"></script>
+    <script  type="text/javascript" src="javascripts/underscore.min.js" ></script>
+
+    <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7PD7klmQbC57ksiGc0PyyViuqCf52_HI&libraries=places"></script>
+
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js"></script>
+    <script src="../assets/js/ng-map.min.js"></script>
+    <!--<link href="../bower_components/leaflet.markercluster/dist/MarkerCluster.css" rel="stylesheet" type="text/css"/>
+    <link href="../bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" rel="stylesheet" type="text/css"/>
+    <script src="../bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>-->
+
+    <!-- AIzaSyALOkOurHJaGcSh2NtqKjVz7T-J4yRv6RU
+AIzaSyD7PD7klmQbC57ksiGc0PyyViuqCf52_HI -->
+    <script type="text/javascript" src="/admin/javascripts/app.js"></script>
+    <script type="text/javascript" src="/admin/modules/authentication/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/authentication/service.js"></script>
+    <script type="text/javascript" src="/admin/javascripts/ngTableParamsService.js"></script>
+    <script type="text/javascript" src="/admin/javascripts/loggerServices.js"></script>
+    <script type="text/javascript" src="/admin/modules/home/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/home/homeService.js"></script>
+    <script type="text/javascript" src="/admin/modules/users/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/users/service.js"></script>
+    <script type="text/javascript" src="/admin/javascripts/communication.js"></script>
+    <script type="text/javascript" src="/admin/javascripts/directives/directives.js"></script>
+    <script type="text/javascript" src="/admin/modules/jobs/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/jobs/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/jobinvites/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/jobinvites/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/crews/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/crews/service.js"></script>
+    <script type="text/javascript" src="/admin/javascripts/constants.js"></script>
+    <script type="text/javascript" src="/admin/modules/cms/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/cms/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/subscription/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/subscription/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/payments/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/payments/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/incident/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/incident/service.js"></script>
+    <script type="text/javascript" src="/admin/modules/my_dailies/controller.js"></script>
+    <script type="text/javascript" src="/admin/modules/my_dailies/service.js"></script>
+
+
+
+
+    <!-- JS Lib files end -->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header ui-view="header" class="header"></header>
+        <div ui-view="leftBar"></div>
+        <div ui-view="content"></div>
+        <!-- Main Footer -->
+        <footer ng-if="loggedInUser" class="main-footer text-center">&copy;MyDaily 2017 | All Right Reserved </footer>
+    </div>
+</body>
+
+</html>

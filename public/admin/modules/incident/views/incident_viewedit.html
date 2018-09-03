@@ -1,0 +1,137 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+            <span aria-hidden="true">
+                <img src="../assets/images/cross.png" alt="" />
+            </span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel" ng-init="mySwitch = true">Incident Details</h4>
+    </div>
+    <div class="modal-body modal-custom-new">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 grid-main-outer">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Owner</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.own_It" value="{{incident.own_It}}" /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Ticket Number</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.ticket_No" value="{{incident.ticket_No}}" /><br/><br/>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                        <label class="grid-inner-label">Incident date</label><br/>
+                    {{incident.did_It_Happen ?incident.did_It_Happen : '-' | date:"MM/dd/yyyy"}}
+            </div>   
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main"> <br>
+
+                <label class="grid-inner-label">Submitted by</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.foremen_detail.firstname" value="{{dailies.foremen_details.firstname ? dailies.foremen_details.firstname + " " + dailies.foremen_details.lastname
+                : '-'}}" /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Address</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.address" value="{{incident.address ? incident.address : '-'}}"
+                /><br/><br/>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 grid-main-outer last-rt-b">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">What was damaged ?</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.damage_Report " value="{{incident.damage_Report ?incident.damage_Report : '-'}}"
+                /> <br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Was it our fault?</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.fault " value="{{incident.fault ?incident.fault : '-'}}"
+                /> <br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">How far off the mark was it?</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.mark_Was_It " value="{{incident.mark_Was_It ?incident.mark_Was_It : '-'}}"
+                /> <br/><br/>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Description</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="incident.description " value="{{incident.description ?incident.description : '-'}}"
+                /> <br/><br/>
+            </div>
+
+
+
+  <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+
+                     <label class="grid-inner-label">Timestamp</label>  
+                    {{incident.createdAt ?incident.createdAt : '-' | date:"MM/dd/yyyy 'at' h:mma"}}
+  </div>
+                 
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Incident Images</label>
+                <div class="map-outer-class">
+                    <a ng-repeat="incidentImage in incident.incident_image " class="fancybox " href="/{{incidentImage.image_path}} ">
+                        <img src="/{{incidentImage.image_path}} " ng-if="incidentImage.image_path " class="img-circle
+            " height="50 " width="50 ">
+                    </a>
+                </div>
+            </div>
+        </div>
+          <!-- <button type="submit " ng-disabled="mySwitch" class="save-btn-custom btn m_lft5  pull-right " ng-click="saveViewEditIncident(incident) ">
+            Save</button> -->
+            <div class="bottom_links">
+  <a href="" ng-disabled="mySwitch" class="save-btn-custom btn m_lft5  pull-right" ng-click="saveViewEditIncident(incident)" >
+                  <i class="btn btn-primary  fa fa-save action-btn-custom" aria-hidden="true"></i>
+                </a>
+
+
+
+
+
+
+
+<a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click=" mySwitch = false;" >
+                  <i class="fa fa-pencil-square-o action-btn-custom btn btn-primary" aria-hidden="true"></i>
+                </a>
+
+
+<!-- 
+             <button type="submit " class="save-btn-custom btn m_lft5  pull-right " ng-click=" mySwitch = false;">
+            Edit</button> -->
+    <a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click="deleteIncident(incident._id)">
+                  <i class="fa fa-trash action-btn-custom btn btn-primary" aria-hidden="true"></i>
+                </a>
+
+<a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click="downloadsinglepdf(incident._id)" >
+                  <i class="btn btn-primary  fa fa-file-pdf-o action-btn-custom" aria-hidden="true"></i>
+                </a>
+                <div class="clearfix"></div>
+
+            </div>
+<!-- 
+         <button type="submit " class="save-btn-custom btn m_lft5  pull-right " ng-click="deleteIncident(incident._id)">
+            Delete</button> -->
+          <!-- <a href="" ng-click="deleteIncident(incident._id)">
+                                            <i class="fa fa-trash-o fa-1" aria-hidden="true"></i>
+                                        </a> -->
+    </div>
+
+</form>
+<style>
+    .grid-inner-label {
+        margin-top: 8px;
+    }
+</style>

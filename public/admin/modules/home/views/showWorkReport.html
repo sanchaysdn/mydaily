@@ -1,0 +1,90 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+            <span aria-hidden="true">
+                <img src="../assets/images/cross.png" alt="" />
+            </span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">CREW'S DAILIES</h4>
+    </div>
+    <div class="modal-body modal-custom-new">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 grid-main-outer">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                   <div class="form-group1">
+                    <label class="grid-inner-label">Foreman</label>
+                    <label class="h5 form-control">{{users.userName}}</label>
+                   </div>
+            </div>
+            
+         
+       
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <div class="form-group1">
+                <label class="grid-inner-label">Jobs Delayed</label>
+                <label type="text" class="h5 form-control" >
+            {{users.assigned_job.delay.length}} </label>   
+            </div>
+            </div>
+         
+         
+
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 grid-main-outer">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+               <div class="form-group1">
+                <label class="grid-inner-label">Total Assigned Jobs</label>
+                <label type="text" class="h5 form-control"   >{{users.total}}</label>
+            </div>
+           </div>
+         
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <div class="form-group1">
+                <label class="grid-inner-label">Jobs Completed in time</label>
+                <label type="text" class="h5 form-control" >{{users.assigned_job.actual.length}} </label>
+            </div>
+            </div>
+         
+
+        
+          
+        </div>
+        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">GPS Capture :</label>
+                <label class="grid-inner-label">{{dailies.latitude ? '' : 'Not Available'}}</label>
+                <div class="map-outer-class">
+                    <ng-map zoom="15" center="-33, 151" ng-if="dailies.latitude">
+                        <marker position="{{dailies.latitude}}, {{dailies.longitude}}" icon="{ url:'/assets/images/gps.png', scaledSize:[32,40], origin: [0,0], anchor: [16,40]}">
+                        </marker>
+                    </ng-map>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Daily Images</label>
+                <div class="map-outer-class">
+                    <a ng-repeat="dailies_Image in dailies.dailiesImage" class="fancybox" href="/{{dailies_Image.image_path}}">
+                        <img src="/{{dailies_Image.image_path}}" ng-if="dailies_Image.image_path" class="img-custom-modal" height="50" width="50">
+                    </a>
+                </div>
+            </div>
+        </div> -->
+        <!-- <button type="submit" class="save-btn-custom btn m_lft5 btn-warning pull-right" ng-click="saveViewEdit(dailies)">
+            Save</button> -->
+    </div>
+</form>
+
+<style>
+    .modal-dialog {
+        width: 800px !important;
+    }
+    .form-group1{
+        margin-bottom: 15px!important;
+    }
+    .modal-custom-new{
+        min-height: 250px;
+    }
+</style>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>MyDaily</title>
+  <link href="../front_end/images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../front_end/css/custom.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+ <div id="backtop"><img src="../front_end/images/top_arrow.png" alt=""></div>
+  <header>
+    <div class="container-fluid">
+        <div class="col-sm-9 col-xs-8">
+            <div class="navbar navbar-default">
+                <a class="navbar-brand" href="#"><img src="../front_end/images/logo.png" alt="" class="img-responsive"></a>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4 clearfix">    
+                    <ul class="social_media">
+                        <li><a href="#"><i class="fa fa-facebook facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+            </div>
+        </div>
+    </header>
+  <section class="banner_top">
+        <div class="container">
+        <div class="col-sm-8">
+                <div class="animate-left">
+
+		<h5>Spend less time tracking production and more time growing your business!</h5>
+                        <!-- <div  class="find_out_more" ng-show="!state">
+                            <a href="" ng-click="toggle()">Find out more</a>
+                        </div> -->
+                      <!--   <div ng-show="state"> -->
+                        <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                            <input ng-show="!displaymsg" type="text" name="email" ng-model="user.email" class="form-control-input" maxlength="50" placeholder="Email" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/" required="" />
+                            <p style="float: left; width: 366px;">We'll keep you in the loop and never share your information.</p>
+                            <div ng-show="displaymsg" class="subscribe-text">{{msg}}</div>
+                            <button  id="sendEmail" type="submit" ng-class="displaymsg ? 'btn-grey m_lft5':'btn-green m_lft5 btn-warning'" ng-disabled="displaymsg"  data-ng-click="sendSubscription(form)">{{sendButtonText}}</button>
+                            
+                            <div ng-show="form.$submitted || form.email.$touched">
+                                <span class="text-danger" ng-show="form.email.$error.required" class="text-danger">
+                                  Please enter email
+                                </span>
+                                <span class="text-danger" ng-show="form.email.$error.pattern && (form.email.$invalid || form.email.$pristine)">Please enter valid Email</span>
+                            </div>
+                            
+                        </form>    
+                        <!-- </div> -->
+                    </div>
+        </div>
+        <div class="col-sm-4">
+                <div class="pharmacist-bg animate-right">
+                    <img src="../front_end/images/1.png" alt="" class="img-responsive"/>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section class="mydaily_ensure">
+        <div class="container  slideanim slide">
+            <h3>
+                MyDaily ensures you get  paid for your work!
+            </h3>
+            <img src="../front_end/images/2.png" alt="">
+            <p>
+                Ever wonder how much of your production slips through the cracks? Put an end to lost production with MyDaily.
+            </p>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section class="foreman_supervisor_works">
+        <div class="container slideanim slide">
+        <div class="col-sm-6 right_text">
+                <h3>
+                    Foreman & Supervisor Roles
+                </h3>
+                <p>
+                    One user creates dailies in the field, another user can approve or reject dailies right from the app, before it goes to the office.
+                </p>
+                <p>
+                    Need your dailes emailed to you so you don't have to keep up the paperwork?<br/>We've got that covered too!
+                </p>
+            </div>
+            <div class="col-sm-6 mob_image">
+                <img src="images/3.png" alt="">
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section class="foreman clearfix">
+        <div class="container slideanim slide">
+            <h3>Foreman</h3>
+            <div class="clearfix foreman-icons">
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.1.png" alt="">
+                        <h4>
+                            DAILIES
+                        </h4>
+                        <p>
+                            View submitted and archived dailies from your phone
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.2.png" alt="">
+                        <h4>
+                            JOBS
+                        </h4>
+                        <p>
+                            View your jobs with one click. See job information like location and job description
+                        </p>
+                    </div>
+                </div>
+                
+                
+                <div class="col-md-2 col-sm-2 col-xs-4 img-fl-right">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.5.png" alt="">
+                        <h4>
+                            CREWS
+                        </h4>
+                        <p>
+                            Keep track of who is on your crew
+                        </p>
+                    </div>
+                </div>
+
+<div class="col-md-2 col-sm-2 col-xs-4 img-fl-right img-fl-left">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.4.png" alt="">
+                        <h4>
+                            INCIDENTS
+                        </h4>
+                        <p>
+                            Create Incident reports from your phone
+                        </p>
+                    </div>
+                </div><div class="col-md-2 col-sm-2 col-xs-4 " style="/*! float: left; */">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.3.png" alt="">
+                        <h4>
+                            NEW DAILIES
+                        </h4>
+                        <p>
+                            Create Dailies from the app. Save GPS data, capture redline images easily
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container slideanim slide">
+            <h3 class="supervisor">
+                Supervisor
+            </h3>
+            <div class="superVisor clearfix">
+                <div class="col-sm-4 col-xs-4">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.1.png" alt="">
+                        <h4>
+                            SUBMITTALS
+                        </h4>
+                        <p>
+                            View submitted by in-house and subcontract crews
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.3.png" alt="">
+                        <h4>
+                            NEW JOBS
+                        </h4>
+                        <p>
+                            Create new jobs with a few clicks. Send jobs to crews with ease
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="text-center">
+                        <img src="../front_end/images/4.5.png" alt="">
+                        <h4>
+                            CREWS
+                        </h4>
+                        <p>
+                            View crews under your supervision. See crew members, subcontractor information and more
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section class="find_out_more_sec">
+        <div class="container slideanim slide">
+            <img src="images/5.png" alt="">
+            <div  class="find_out_more">
+                <a href="#">Find out more</a>
+            </div>
+            <p>
+                We will notify you as soon as the app is available.
+            </p>
+        </div>
+    </section>
+     <!--Footer-->
+    <footer>
+        <div class="container slideanim slide">
+        <div class="copy_right">
+                © <span>MyDaily</span> 2017
+            </div>
+            <div class="all_rights_res">
+                T&C's | All Rights Reserved
+            </div>
+    </div>  
+ </footer>
+ <!--/ Footer-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<!--  <script src="js/jquery-3.2.0.min.js"></script>-->
+<script src="../front_end/js/bootstrap.min.js"></script>
+<script src="../front_end/js/float-panel.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        
+        $scope.toggle = function () {
+            $scope.state = !$scope.state;
+        };
+        $scope.displaymsg = false;
+        $scope.sendButtonText = "Send";
+
+        $scope.sendSubscription = function(form) {
+                if (form.$valid) {
+                   console.log('$scope.user',$scope.user);
+                   $http({
+                      method: 'POST',
+                      url: '/api/sendSubscriptionEmail',
+                      data:{'email':$scope.user.email}
+                   }).then(function successCallback(response) {
+                    console.log('response',response);
+                        // this callback will be called asynchronously
+                        // when the response is available
+                        $scope.displaymsg = true;
+                        $scope.sendButtonText = "Sent!";
+                        $scope.msg = response.data.message;
+                      }, function errorCallback(response) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                   });
+                }
+            }
+    });
+</script>
+</body>
+</html>

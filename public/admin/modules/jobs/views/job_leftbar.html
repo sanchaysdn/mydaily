@@ -1,0 +1,15 @@
+<div ng-controller="jobController">
+	<div class="col-sm-4">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<!-- {{dailypath.share_status}} -->
+	  <li ng-if="!jobID" role="presentation" class="active"><a href=''>General</a></li>
+	  <li ng-if="jobID" role="presentation" ng-class="{'active': locationPath === 'job-edit'}"><a ng-href="{{isLinkDisabled ? '#/job-edit/'+jobID : ''}}/{{job_ID}}" ng-disabled="isLinkDisabled">General</a></li>
+	  <li role="presentation" ng-class="{'active': locationPath === 'billingInfo'}"><a ng-href="{{isLinkDisabled ? '#/billingInfo/'+jobID : ''}}/{{job_ID}}" ng-disabled="isLinkDisabled">Billing Information</a></li>
+	   <li role="presentation" ng-class="{'active': locationPath === 'inviteJob'}"><a ng-href="{{isLinkDisabled ? '#/inviteJob/'+jobID : ''}}/{{job_ID}}" ng-disabled="isLinkDisabled">Invite Subcontractor</a></li>
+		<li role="presentation" ng-class="{'active': locationPath === 'daily-path'}"><a ng-href="{{isLinkDisabled ? '#/daily-path/'+jobID : ''}}/{{job_ID}}" ng-disabled="isLinkDisabled">Daily Path & Sharing</a></li>
+				  <li role="presentation"  ng-class="{'active': locationPath === 'segments'}"><a ng-href="{{isLinkDisabled ? '#/segments/'+jobID : ''}}/{{job_ID}}" ng-disabled="isLinkDisabled">Project Segments</a></li>
+
+	</ul>
+</div>
+</div>

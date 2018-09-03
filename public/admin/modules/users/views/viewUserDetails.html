@@ -1,0 +1,71 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+            <span aria-hidden="true">
+                <img src="../assets/images/cross.png" alt="" />
+            </span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">{{(userDetails.firstname | capitalize) +' '+(userDetails.lastname | capitalize)}}</h4>
+    </div>
+    <div class="modal-body">
+        <h3>User Details</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="h6">
+                        <strong>First name</strong>
+                    </td>
+                    <td class="h5">{{userDetails.firstname}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Last name</strong>
+                    </td>
+                    <td class="h5">{{userDetails.lastname}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Email</strong>
+                    </td>
+                    <td class="h5">{{userDetails.email}}</td>
+                </tr>
+                <tr ng-if="!userDetails.deleted">
+                    <td class="h6">
+                        <strong>Status</strong>
+                    </td>
+                    <td class="h5">
+                        <span class="text-success" ng-if="userDetails.status == 'Activate'">
+                            <strong>Activated</strong>
+                        </span>
+                        <span class="text-success" style="color:red;" ng-if="userDetails.status == 'Deactivate'">
+                            <strong>Deactivated</strong>
+                        </span>
+                    </td>
+                </tr>
+                <tr ng-if="userDetails.deleted">
+                    <td class="h6">
+                        <strong>Deleted</strong>
+                    </td>
+                    <td class="h5">This user has been deleted</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-responsive" ng-if="user_level=='Contractor'">
+            <div>
+                <h3>Jobs Details</h3>
+                <table id="example1" class="table table-bordered table-striped" ng-table="userBidsTableParams" show-filter="isFiltersVisible">
+                    <tr ng-repeat="userjob in userDetails.job">
+                        <td data-title="'Client'" filter="{title:'text'}" align="left">{{userjob.job_id.client}}</td>
+                        <td data-title="'Job ID'" filter="{title:'text'}" align="left">{{userjob.job_id.job_id}}</td>
+                    </tr>
+                    <tr ng-if="userDetails.job.length == 0  && !tableLoader">
+                        <td colspan="7" align="center">No record Found</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer bottom-btn">
+        <button type="button" class="btn btn-primary btn-orange" data-dismiss="modal" ng-click="cancel()">Close</button>
+    </div>
+</form>

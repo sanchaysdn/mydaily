@@ -1,0 +1,68 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span aria-hidden="true"><img src="../assets/images/cross.png" alt="" /></span></button>
+        <h4 class="modal-title" id="myModalLabel">Incident Details</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="h6"><strong>Owner</strong></td>
+                    <td class="h5">{{incident.own_It}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Ticket Number</strong></td>
+                    <td class="h5">{{incident.ticket_No}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Incident date</strong></td>
+                    <td class="h5">{{incident.did_It_Happen ?incident.did_It_Happen : '-' | date:"MM/dd/yyyy"}}</td> 
+                </tr>
+
+                <tr>
+                    <td class="h6"><strong>Submitted by</strong></td>
+                    <td class="h5">{{incident.foremen_detail.firstname}} {{incident.foremen_detail.lastname}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Address</strong></td>
+                    <td class="h5">{{incident.address ? incident.address : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>What was damaged ?</strong></td>
+                    <td class="h5">{{incident.damage_Report ?incident.damage_Report : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Was it our fault?</strong></td>
+                    <td class="h5">{{incident.fault ?incident.fault : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>How far off the mark was it?</strong></td>
+                    <td class="h5">{{incident.mark_Was_It ?incident.mark_Was_It : '-'}}</td>
+                </tr>    
+
+                 <tr>
+                    <td class="h6"><strong>Description</strong></td>
+                    <td class="h5">{{incident.description ?incident.description : '-'}}</td>
+                </tr> 
+                <tr>
+                    <td class="h6"><strong>Timestamp</strong></td>
+                    <td class="h5">{{incident.createdAt ?incident.createdAt : '-' | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                </tr>  
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <h3>Incident Images</h3>
+                 <tr>
+                     <td colspan="2" data-title="'Image'" align="left" >
+                         <div class="inciden-img">
+                        <a  ng-repeat="incidentImage in incident.incident_image" class="fancybox" href="/{{incidentImage.image_path}}"><img src="/{{incidentImage.image_path}}" ng-if="incidentImage.image_path" class="img-circle" height="50" width="50"></a>
+                        </div>
+                    </td>
+                </tr>   
+            </tbody>
+        </table>
+    </div>
+</form>

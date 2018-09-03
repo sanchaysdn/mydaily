@@ -1,0 +1,97 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header clearfix">
+      <h1>{{(user._id) ? 'Edit Subscription ' : 'Add Subscription'}}</h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home </a></li>
+        <li class="active">Subscription</li>
+      </ol>
+    </section>
+    
+    <!-- Main content -->
+    <section class="content my-dash"> 
+      
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box">
+            <div class="box-body">
+             
+              <!--my job tabs-->
+              <div class="job-tab">
+                <div> 
+                  <div class="row">
+                  
+                  <div class="col-sm-12">
+            
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="job2">
+                        <div class="tab-header">
+                            <h2>{{(user._id) ? 'Edit ' : 'Add'}} Detail</h2>
+                        </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                            <div class="form-group">
+                            <label class="col-sm-3">Plan Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="name" ng-model="subscription.name" maxlength="50" required>
+                                    <div ng-show="form.$submitted || form.name.$touched">
+                                        <span class="text-danger" ng-show="form.name.$error.required" class="text-danger">
+                                          Please enter plan name
+                                        </span>
+                                       
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Plan Feature</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" type="text" name="feature" ng-model="subscription.feature" maxlength="50" required></textarea>
+                                    <div ng-show="form.$submitted || form.feature.$touched">
+                                        <span class="text-danger" ng-show="form.feature.$error.required" class="text-danger">
+                                          Please enter plan feature
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                           <div class="form-group">
+                            <label class="col-sm-3">Plan Amount</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="amount" ng-model="subscription.amount" maxlength="50" required ng-pattern="/^[a-zA-Z0-9]*$/">
+                                    <div ng-show="form.$submitted || form.amount.$touched">
+                                        <span class="text-danger" ng-show="form.amount.$error.required" class="text-danger">
+                                          Please enter amount
+                                        </span>
+                                        <span class="text-danger" ng-show ="form.amount.$error.pattern">Invalid amount </span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            
+                            <div class="box-footer clearfix no-border">
+                            <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled"  data-ng-click="addUpdateData(form)">{{(user._id) ? 'Update' : 'Save'}} <i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                            <!-- <a href="#/supervisor" class="btn m_lft5 btn-primary pull-right">Cancel</a> -->
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+                    </div>
+                </div>
+              </div>
+              <!--End my job tabs-->
+            </div>
+            <!-- /.box-body --> 
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content --> 
+  </div>
+  <!-- /.content-wrapper --> 

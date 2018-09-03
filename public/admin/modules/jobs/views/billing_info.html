@@ -1,0 +1,169 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header clearfix">
+    <h1>{{(job._id) ? job.job_id : 'Add Billing Info'}}</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#/dailies">Dashboard </a>
+      </li>
+      <li>
+        <a href="#/job">job</a>
+      </li>
+      <li>
+        <a>{{(job._id) ? 'Edit Billing Info' : 'New Billing Info'}}</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content my-dash" data-ng-init="findOneJobInfo();getBillableList();">
+
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <!--my job tabs-->
+            <div class="job-tab">
+              <div>
+                <div class="row">
+
+                  <div ng-include="'/admin/modules/jobs/views/job_leftbar.html'"></div>
+
+                  <div class="col-sm-8">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="job1">
+                        <div class="tab-header">
+                          <h2>Billing Info</h2>
+                        </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                            <div class="form-group">
+                              <label class="col-sm-3">Client Billing Contact</label>
+                              <div class="col-sm-9">
+                                <input class="form-control" type="text" name="client_billing_contact" ng-model="billing_info.client_billing_contact" maxlength="50"
+                                  placeholder="Client Billing Contact">
+                                <div ng-show="form.$submitted || form.client_billing_contact.$touched">
+                                  <span class="text-danger" ng-show="form.client_billing_contact.$error.required" class="text-danger">
+                                    Please enter client billing contact.
+                                  </span>
+                                  <span class="text-danger" ng-show="form.client_billing_contact.$error.pattern">Invalid client billing contact.</span>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-3">Billing Email</label>
+                              </label>
+                              <div class="col-sm-9">
+                                <input class="form-control" type="text" name="billing_email" ng-model="billing_info.billing_email" maxlength="50" placeholder="Billing Email"
+                                  ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/">
+                                <div ng-show="form.$submitted || form.email.$touched">
+                                  <span class="text-danger" ng-show="form.billing_info.$error.required" class="text-danger">
+                                    Please enter billing email.
+                                  </span>
+                                  <span class="text-danger" ng-show="form.billing_info.$error.pattern && (form.billing_info.$invalid || form.billing_info.$pristine)">Please enter valid Email</span>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="col-sm-3">Billable Items</label>
+                              <div class="col-sm-9 scroll outer-scrollable-div">
+                                <ol class="nya-bs-select" name="billable_items" ng-model="billing_info.billable_items" data-live-search="true" title="Selected billable items {{billing_info.billable_items.length}}"
+                                  actions-box="true" class="dropdown-menu" role="menu" multiple required>
+
+                                  <li nya-bs-option="option  in billableItemList ">
+                                    <a>
+                                      {{option.name}}
+                                      <span class="glyphicon glyphicon-ok check-mark"></span>
+                                    </a>
+                                  </li>
+                                  <!-- </div> -->
+                                </ol>
+                                <!-- <select name="billable_items"
+                            id="billable_items" 
+                            ng-model="billing_info.billable_items" 
+                            class="form-control"
+                            multiple="true" 
+                            ng-options="billabeItems.name for billabeItems in billableItemList track by billabeItems._id"/> -->
+                                <div ng-show="form.$submitted || form.billable_items.$touched">
+                                  <span class="text-danger" ng-show="form.billable_items.$error.required" class="text-danger">
+                                    Please select billable items.
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+
+
+                            <div ng-if="addNew">
+
+                              <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-sm-3">Billable Item Name</label>
+                                  </label>
+                                  <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="billable_name" ng-model="item.name" maxlength="50" placeholder="Billing Name"
+                                      required>
+                                    <div ng-show="form.$submitted || form.billable_name.$touched">
+                                      <span class="text-danger" ng-show="form.billable_name.$error.required" class="text-danger">
+                                        Please enter billable item name.
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="box-footer clearfix no-border">
+                                  <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled" data-ng-click="addItem(item)">Add Item
+                                    <i class="fa fa-spinner fa-spin" ng-if="loader"></i>
+                                  </button>
+                                  <a href="" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="form-group" ng-if="!addNew">
+                              <div class="col-sm-9 col-sm-offset-3">
+                                <a href="" class=" btn btn-primary" ng-click="addNewbillable()">
+                                  <i class="fa fa-plus-square" aria-hidden="true"></i> Add New</a>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="box-footer clearfix no-border" ng-if="!addNew">
+                              <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled" data-ng-click="addUpdateBillingInfo(form)">{{(job._id) ? 'Update' : 'Save'}}
+                                <i class="fa fa-spinner fa-spin" ng-if="loader"></i>
+                              </button>
+                              <a href="#/job" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--End my job tabs-->
+              </div>
+              <!-- /.box-body -->
+
+            </div>
+          </div>
+        </div>
+  </section>
+  <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <style>
+    .outer-scrollable-div ol .dropdown-menu {
+      max-height: 222px;
+      overflow: hidden;
+    }
+
+    .outer-scrollable-div ol .dropdown-menu .dropdown-menu {
+      max-height: 140px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  </style>

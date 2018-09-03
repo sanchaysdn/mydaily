@@ -1,0 +1,152 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Incident</h1>
+      <ol class="breadcrumb">
+        <li class="active" class="active"><a href="#/incidents">Incident </a></li>
+        <li class="active">Incident-Edit</li>
+      </ol>
+    </section>
+    
+    <!-- Main content -->
+    <section class="content my-dash" data-ng-init="findOne();"> 
+      
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box">
+            <div class="box-body">
+             
+              <!--my job tabs-->
+              <div class="job-tab">
+                <div> 
+                  <div class="row">
+                  
+                  <div class="col-sm-12">
+            
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="job2">
+                        <div class="tab-header">
+                            <h2>Incident Edit</h2>
+                        </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal" >
+                            <div class="form-group">
+                            <label class="col-sm-3">What Was Damage</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="damage" ng-model="incidents.damage_Report"  maxlength="50" required >
+                                    <div ng-show="form.$submitted || form.damage.$touched">
+                                        <span class="text-danger" ng-show="form.damage.$error.required" class="text-danger">
+                                          Please enter Damage Title
+                                        </span>
+                                        <span class="text-danger" ng-show ="form.damage.$error.pattern">Invalid Damage Detail</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Who Owns It</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text"  name="own_It" ng-model="incidents.own_It" maxlength="50" required >
+                                    <div ng-show="form.$submitted || form.own_It.$touched">
+                                        <span class="text-danger" ng-show="form.own_It.$error.required" class="text-danger">
+                                          Please enter owns name
+                                        </span>
+                                        <span class="text-danger" ng-show ="form.own_It.$error.pattern">Invalid owns name</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Address</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text"  name="address" ng-model="incidents.address" maxlength="50" required>
+                                    <div ng-show="form.$submitted || form.address.$touched">
+                                        <span class="text-danger" ng-show="form.address.$error.required" class="text-danger">
+                                          Please enter Address
+                                        </span>
+                                      </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                             <div class="form-group">
+                            <label class="col-sm-3">Ticket Number</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="ticket" ng-model="incidents.ticket_No" maxlength="50" ng-pattern="/^[0-9]*$/" required>
+                                    <div ng-show="form.$submitted || form.ticket.$touched">
+                                        <span class="text-danger" ng-show="form.ticket.$error.required" class="text-danger">
+                                          Please enter Ticket Number
+                                        </span>
+                                         <span class="text-danger" ng-show ="form.ticket.$error.pattern">Invalid Ticket Number.</span>
+                                      </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Was It Our Fault</label>
+                                <div class="col-sm-9">
+                                <select class="form-control" ng-model="incidents.fault" name="fault" >
+                                  <option value="Yes">Yes</option>
+                                  <option value="No">No</option>
+                                 </select>
+                                   <!--  <input class="form-control" type="text" name="fault" ng-model="incidents.fault" maxlength="50" required> -->
+                                    <div ng-show="form.$submitted || form.fault.$touched">
+                                        <span class="text-danger" ng-show="form.fault.$error.required" class="text-danger">
+                                          Please enter Fault
+                                        </span>
+                                      </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                             <div class="form-group">
+                             <label class="col-sm-3">How Far Of The Marks Was It</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text"  name="marks" ng-model="incidents.mark_Was_It" maxlength="50" required>
+                                    <div ng-show="form.$submitted || form.marks.$touched">
+                                        <span class="text-danger" ng-show="form.marks.$error.required" class="text-danger">
+                                          Please enter Marks
+                                        </span>
+                                      </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                             <div class="form-group">
+                             <label class="col-sm-3">Description</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text"  name="description" ng-model="incidents.description" maxlength="50" required>
+                                    <div ng-show="form.$submitted || form.description.$touched">
+                                        <span class="text-danger" ng-show="form.description.$error.required" class="text-danger">
+                                          Please enter Description
+                                        </span>
+                                      </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+
+                            <div class="box-footer clearfix no-border">
+                            <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled"  data-ng-click="addUpdateincidents(form)">{{(incidents._id) ? 'Update' : 'Save'}} <i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                            <a href="#/incidentss" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                  </div>
+                    </div>
+                </div>
+              </div>
+              <!--End my job tabs-->
+            </div>
+            <!-- /.box-body --> 
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content --> 
+  </div>
+  <!-- /.content-wrapper --> 

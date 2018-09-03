@@ -1,0 +1,93 @@
+#map {
+    margin: 0;
+    padding: 0;
+    height: 400px;
+    max-width: none;
+}
+#map img {
+    max-width: none !important;
+}
+
+a.list-group-item{
+    color: #f4f4f4;
+    background-color: #333;
+}
+
+element.style {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    width: 321px;
+    height: 191px;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.label-icon{
+    padding:5px;
+    background-color:black;
+    color:white;
+    width:50px;
+}
+.gm-style-iw {
+    font-weight: 300;
+    font-size: 13px;
+    overflow: hidden;
+    width: 303px !important;
+    top: 5px !important;
+    left: 5px !important;
+    background-color: #333;
+    height: 182px;
+    border: 1px solid #333;
+    border-radius: 2px 2px 10px 10px;
+}
+#iw-container {
+    margin-bottom: 10px;
+}
+#iw-container .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #48b5e9;
+    color: white;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+}
+#iw-container .iw-content {
+    font-size: 10px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-right: 1px;
+    padding: 12px 0px 19px 18px;
+    max-height: 140px;
+   
+}
+.iw-content img {
+    float: right;
+    margin: 0 5px 5px 10px; 
+}
+.iw-subTitle {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 0;
+}
+.iw-bottom-gradient {
+    position: absolute;
+    width: 326px;
+    height: 25px;
+    bottom: 10px;
+    right: 18px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}

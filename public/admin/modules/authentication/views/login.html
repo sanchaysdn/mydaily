@@ -1,0 +1,70 @@
+<!-- Content Wrapper. Contains page content -->
+<div class=""> 
+    <!-- Main content -->
+    <section class="content my-login"> 
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="">
+            <div class="">
+                <div class="login-box">
+                  <div class="login-logo">
+                    <a href="#"><img src="/admin/images/logo.png" alt=""></a>
+                  </div>
+  <!-- /.login-logo -->
+                  <div class="login-box-body" id="login-box">
+                    <div class="alert alert-danger alert-dismissable" ng-show="error"><i class="fa fa-ban"></i>
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>{{error}}</div>
+                   
+                    <form accept-charset="UTF-8" role="form" role="loginForm" novalidate name="loginForm"  id="loginform">
+                      <div class="form-group has-feedback">
+                      <input class="form-control" placeholder="Email" type="email" name="email" ng-model="user.email" placeholder="Email" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/" required>
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <div ng-show="loginForm.$submitted || loginForm.email.$touched">
+                                    <span class="text-danger" ng-show="loginForm.email.$error.required" class="text-danger">Please enter Email
+                                                                          </span>
+                                    <span class="text-danger" ng-show="loginForm.email.$error.pattern && (loginForm.email.$invalid || loginForm.email.$pristine)">Please enter valid Email</span>
+                                </div>
+                       
+                      </div>
+                      <div class="form-group has-feedback">
+                        <input type="password" class="form-control" name="password" class="form-control password" placeholder="Password" ng-model="user.password" required>
+                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <span ng-show="loginForm.$submitted || loginForm.password.$touched">
+                                    <span class="text-danger"  ng-show="loginForm.password.$error.required">Please enter Password</span>
+                                </span>
+                      </div>
+                      <div class="row">
+                      <div class="row">
+                        <div class="col-xs-7 col-sm-8">
+                          <div class="checkbox icheck">
+                            <label>
+                              <input ng-model="user.remember"  type="checkbox"> Remember Me
+                            </label>
+                          </div>
+                      </div>
+                        <!-- /.col -->
+                        <div class="col-xs-5 col-sm-4">
+                          <button type="submit" class=" btn btn-primary" name="login" ng-click="login(loginForm)" ng-disabled="disabled">Sign In <i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                    </form>
+                    <div class="links">
+                    <a ui-sref="contractor_signup" class="text-center">Register</a>
+                    </div>
+                  </div>
+                  <!-- /.login-box-body -->
+</div>
+              <!--Foremen linsting table-->
+              <!--Foremen linsting table-->
+            </div>
+            <!-- /.box-body --> 
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content --> 
+</div>
+  <!-- /.content-wrapper --> 

@@ -1,0 +1,24 @@
+<div class="container" ng-init="activationMessage()">
+<br>
+<br>
+	<div class="alert alert-success" ng-if="success == 'true'">
+	  <strong>Success!</strong> Your account has officially been activated.
+	   <div class="footer">
+            <p><a ui-sref="login">Goto Login</a></p>
+       </div>
+	</div>
+
+	<div class="alert alert-danger" ng-if="success == 'false'">
+	  <strong>Internal Error!</strong> Something went wrong please try again.
+	   <div class="footer">
+            <p><a ui-sref="login">Goto Login</a></p>
+       </div>
+	</div>
+	<div class="alert alert-info" ng-if="success == 'verified'">
+	  <strong>Link Expired!</strong> Your account has already been verified.
+
+	   <div class="footer">
+            <p><a ui-sref="login">Goto Login</a></p>
+       </div>
+	</div>
+</div>

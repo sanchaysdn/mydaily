@@ -1,0 +1,182 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+            <span aria-hidden="true">
+                <img src="../assets/images/cross.png" alt="" />
+            </span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Daily Details</h4>
+    </div>
+    <div class="modal-body modal-custom-new" ng-init="mySwitch = true">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 grid-main-outer">
+            <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">SUBMISSION DATE</label><br/>
+                {{dailies.createdAt | date:"dd MMM yyyy"}}<br/><br/>
+                <!-- <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" >{{dailies.createdAt | date:"dd MMM"}} </input> -->
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">DAILY NUMBER</label><br/>
+                {{dailies.daily_number}}<br/><br/>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">SUPERVISIOR</label><br/>
+                {{dailies.supervisor_details.firstname ?dailies.supervisor_details.firstname + " " +dailies.supervisor_details.lastname
+                    : '-'}} <br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">FOREMEN</label></br>
+                 {{dailies.foremen_details.firstname ? dailies.foremen_details.firstname + " " +dailies.foremen_details.lastname
+                    : '-'}} <br/><br/>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">OPERATOR</label></br>
+                {{dailies.crews_details.firstname ?dailies.crews_details.firstname + " " +dailies.crews_details.lastname
+                    : '-'}} <br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">JOB ID</label>
+                <input ng-disabled="mySwitch" type="text" ng-model="dailies.job_detail.job_id" value="{{dailies.job_detail.job_id ? dailies.job_detail.job_id : '-'}}"
+                    class="h5 grid-inner-content-txt" /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">CLIENT NAME</label></br>
+                {{dailies.job_detail.client ? dailies.job_detail.client : '-'}}
+                <br/><br/>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 grid-main-outer">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">SUBCONTRACTOR NAME</label></br>
+ {{dailies.contractor_details.firstname ?dailies.contractor_details.firstname + " " +dailies.contractor_details.lastname
+                    : '-'}}                <br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">TICKET NUMBER</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="dailies.job_location" value="{{dailies.job_location ? dailies.job_location : '-'}}"
+                /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">Job DATE</label><br/>
+                <label class="grid-inner-label">From</label> {{dailies.from_date | date:"dd MMM"}}  <label class="grid-inner-label">To</label> {{dailies.to_date | date:"dd MMM"}} <br/><br/>
+                <!-- <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt"  >{{dailies.from_date | date:"dd MMM"}}
+                </input> -->
+            </div>
+
+           
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">STATUS</label><br/>
+                <span class="h5" ng-if="dailies.status=='Active'">{{dailies.status}}</span>
+                <span class="h5"  ng-if="dailies.status=='Accepted'">{{dailies.status}}</span>
+                <span class="h5"  ng-if="dailies.status=='Rejected'">{{dailies.status}}</span><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">NO PRODUCTION</label></br>
+                {{dailies.no_production? 'YES' : 'N/A' }}<br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">NOTES</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="dailies.notes" value="{{dailies.notes ? dailies.notes : '-'}}"
+                /><br/><br/>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">REJECT NOTES</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="dailies.reject_notes" value="{{dailies.reject_notes ? dailies.reject_notes : '-'}}"
+                /><br/><br/>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 grid-main-outer last-rt-b">
+        <div  ng-repeat="billableItems in dailies.billable_items">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">BILLABLE ITEMS</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="billableItems.name" value="{{billableItems.name ? billableItems.name : '-'}}"
+                /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label"> QUANTITY</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="billableItems.quantity" value="{{billableItems.quantity ? billableItems.quantity : '-'}}"
+                /><br/><br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">DESCRIPTION</label>
+                <input ng-disabled="mySwitch" type="text" class="h5 grid-inner-content-txt" ng-model="billableItems.description" value="{{billableItems.description ? billableItems.description : '-'}}"
+                /><br/><br/>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label">GPS CAPTURE :</label>
+                <label class="grid-inner-label">{{dailies.latitude ? '' : 'Not Available'}}</label>
+                <div class="map-outer-class">
+                    <ng-map zoom="15" center="-33, 151" ng-if="dailies.latitude">
+                        <marker position="{{dailies.latitude}}, {{dailies.longitude}}" icon="{ url:'/assets/images/gps.png', scaledSize:[32,40], origin: [0,0], anchor: [16,40]}">
+                        </marker>
+                    </ng-map>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 inner-grid-main">
+                <label class="grid-inner-label col-lg-12 col-md-12 col-sm-12 col-xs-12">IMAGES</label>
+                <div class="map-outer-class">
+                    <a ng-repeat="dailies_Image in dailies.dailiesImage" class="fancybox" href="/{{dailies_Image.image_path}}">
+                        <img src="/{{dailies_Image.image_path}}" ng-if="dailies_Image.image_path" class="img-custom-modal" height="50" width="50">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- <button type="submit" ng-disabled="mySwitch"  class="save-btn-custom btn m_lft5  pull-right" ng-click="saveViewEdit(dailies)">
+            Save</button> -->
+
+
+
+ <a href="" ng-disabled="mySwitch" class="save-btn-custom btn m_lft5  pull-right" ng-click="saveViewEdit(dailies)" >
+                  <i class="btn btn-primary  fa fa-save action-btn-custom" aria-hidden="true"></i>
+                </a>
+
+
+          <!-- <button type="submit" class="save-btn-custom btn m_lft5  pull-right" ng-click=" mySwitch = false;">
+            <i class="fa fa-pencil-square-o"></i></button> -->
+              <!-- <button type="submit" class="save-btn-custom btn m_lft5 pull-right" ng-click="deletedailies(dailies._id)">
+            Delete</button> -->
+ <a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click=" mySwitch = false;" >
+                  <i class="fa fa-pencil-square-o action-btn-custom btn btn-primary" aria-hidden="true"></i>
+                </a>
+
+
+    <a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click="deletedailies(dailies._id)">
+                  <i class="fa fa-trash action-btn-custom btn btn-primary" aria-hidden="true"></i>
+                </a>
+ <a href="" class="save-btn-custom btn m_lft5  pull-right" ng-click="downloadsinglepdf(dailies._id)" >
+                  <i class="btn btn-primary  fa fa-file-pdf-o action-btn-custom"  aria-hidden="true"></i>
+                </a>
+
+
+
+
+
+    </div>
+ 
+    </div>
+
+
+
+
+<!-- 
+                  <a href="" ng-click="deletedailies(dailies._id)">
+                  <i class="fa fa-trash-o fa-1" aria-hidden="true"></i>
+                </a> -->
+</form>
+
+<style>
+    .modal-dialog {
+        width: 750px !important;
+    }
+</style>

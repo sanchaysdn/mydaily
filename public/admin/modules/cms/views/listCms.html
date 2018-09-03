@@ -1,0 +1,94 @@
+<aside class="right-side" ng-init="getAllCms()">
+    <!-- Content Header (Page header) -->
+    <section class="content-header clearfix">
+        <h1>CMS</h1>
+        <ol class="breadcrumb">
+            <li><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>CMS</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box-body table-responsive">
+                    <!-- <div class="alert alert-danger alert-dismissable" ng-show="message">
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>{{message}}
+                    </div> -->
+                    <div class="box">
+                        <!-- <div class="box-header">
+                                    <h3 class="box-title">Data Table With Full Features</h3>
+                                </div> -->
+                        <div class="box-body table-responsive">
+                            <div class="clearfix" style="padding-bottom:15px;">
+                                <div class="box-body table-responsive">
+                                    <div class="clearfix">
+                                        <!-- <div class="pull-left m_btm15"><a href='/#/users/add' align='right' class="btn btn-primary">Add New Users</a></div> -->
+                                        <div class="clearfix"></div>
+                                        <form name="searchForm" novalidate>
+                                            <div class="input-group">
+                                                <!-- <span class="input-group-addon">Except for...
+                                        <input type="checkbox" name="inverted" ng-model="isInvertedSearch" />
+                                      </span> -->
+                                                <input type="text" class="form-control" placeholder="Search term" name="searchTerm" ng-model="searchTextField" ng-change="searching()" required />
+                                                <span class="input-group-btn">
+                                        <button type="button" ng-click="searching()" class="btn btn-default" type="submit">
+                                          <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                                </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    </br>
+                                    <table id="example1" class="table table-bordered table-striped" ng-table="tableParams" show-filter="isFiltersVisible">
+                                        <tr ng-repeat="cms in cmsList">
+                                            <td data-title="'Title'" sortable="'title'" filter="{title:'text'}" align="left">{{cms.title}}</td>
+                                            <td data-title="'Path'" filter="{title:'text'}" align="left"><a target="_blank" href="{{baseUrl+'/admin/#/'+cms.name}}">{{baseUrl+'/admin/#/'+cms.name}}</a></td>
+                                            <td data-title="'Description'" ng-bind-html="cms.description  | trust" filter="{title:'text'}" align="left">{{cms.description}}</td>
+                                            <!-- <td data-title="'Status'" sortable="'status'" filter="{title:'text'}" align="left">
+                                                <a href="javascript:void(0)" ng-click="enableDisableUser(cms._id, 'Inactive')"><img src="/assets/images/enable.png" title="Active" ng-if="user.status == 'Active'" height="17" width="17"></a>
+                                                <a href="javascript:void(0)" ng-click="enableDisableUser(user._id, 'Active')"><img src="/assets/images/disabled.png" title="Inactive" ng-if="user.status == 'Inactive'" height="14" width="14"></a>
+                                            </td> -->
+                                            <td data-title="'Action'" align='left'>
+                                                <!-- <a href="javascript:void(0)" ng-click="viewUserOrders(user)"><i class="fa fa-eye fa-1" aria-hidden="true"></i></a>&nbsp;&nbsp; -->
+                                                <a href="#/cms-edit/{{cms._id}}"><i class="fa fa-pencil-square-o fa-1" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr ng-if="tableLoader">
+                                            <td colspan="4" align="center">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </td>
+                                        </tr>
+                                        <tr ng-if="cmsList.length == 0 && !tableLoader">
+                                            <td colspan="4" align="center">No record Found</td>
+                                        </tr>
+                                        <!--  <tr>
+                                                <td colspan='2'>
+                                                    <div class="form-group">
+                                                        <select class="form-control" name='selectedAction' id='selectedAction'>
+                                                            <option value="0">Select</option>
+                                                            <option value="1">Enable</option>
+                                                            <option value="2">Disable</option>
+                                                            <option value="3">Delete</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td colspan='3'>
+                                                    <input type='button' name='go' value='Go' class='btn btn-primary' ng-click="performAction()">
+                                                </td>
+                                            </tr> -->
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                    </div>
+    </section>
+    <!-- /.content -->
+</aside>
+<!-- /.right-side -->
+<!-- page script -->
+<script type="text/ng-template" id="headerCheckbox.html">
+    <input type="checkbox" data-ng-click="toggleSelection(0)" ng-model="checkboxes.checked" class="select-all" value="" />
+</script>

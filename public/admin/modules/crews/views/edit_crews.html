@@ -1,0 +1,99 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header clearfix">
+      <h1>Customer ID : {{customer_id}}</h1>
+      <ol class="breadcrumb">
+        <li><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a ui-sref="foremen">Manage Foreman</a></li>
+        <li>Manage Crew</li>
+      </ol>
+    </section>
+    
+    <!-- Main content -->
+    <section class="content my-dash" data-ng-init="findOne();"> 
+      
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box">
+            <div class="box-body">
+             
+              <!--my job tabs-->
+              <div class="job-tab">
+                <div> 
+                  <div class="row">
+                  
+                  <div class="col-sm-12">
+            
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="job2">
+                        <div class="tab-header">
+                            <h2>Crew Detail</h2>
+                        </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                            <div class="form-group">
+                            <label class="col-sm-3">First Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="firstname" ng-model="crew.firstname" maxlength="50" required ng-pattern="/^[a-zA-Z0-9]*$/">
+                                    <div ng-show="form.$submitted || form.firstname.$touched">
+                                        <span class="text-danger" ng-show="form.firstname.$error.required" class="text-danger">
+                                          Please enter first name
+                                        </span>
+                                        <span class="text-danger" ng-show ="form.firstname.$error.pattern">Invalid first name</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Last Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="lastname" ng-model="crew.lastname" maxlength="50" required ng-pattern="/^[a-zA-Z0-9]*$/">
+                                    <div ng-show="form.$submitted || form.lastname.$touched">
+                                        <span class="text-danger" ng-show="form.lastname.$error.required" class="text-danger">
+                                          Please enter last name
+                                        </span>
+                                        <span class="text-danger" ng-show ="form.lastname.$error.pattern">Invalid last name</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3">Email</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" name="email" ng-model="crew.email" maxlength="50" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/" required>
+                                    <div ng-show="form.$submitted || form.email.$touched">
+                                        <span class="text-danger" ng-show="form.email.$error.required" class="text-danger">
+                                          Please enter email
+                                        </span>
+                                        <span class="text-danger" ng-show="form.email.$error.pattern && (form.email.$invalid || form.email.$pristine)">Please enter valid Email</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="box-footer clearfix no-border">
+                            <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled"  data-ng-click="addCrewData(form)">{{(crew._id) ? 'Update' : 'Save'}} <i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                            <a href="#/crews" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                  </div>
+                    </div>
+                </div>
+              </div>
+              <!--End my job tabs-->
+            </div>
+            <!-- /.box-body --> 
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content --> 
+  </div>
+  <!-- /.content-wrapper --> 

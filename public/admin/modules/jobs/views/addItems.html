@@ -1,0 +1,91 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header clearfix">
+    <!--<h1>{{(item._id) ? 'Edit Item' : 'Add Item'}}</h1>-->
+    <h1>Customer ID : {{customer_id}}</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a ui-sref="dailies">Dashboard </a>
+      </li>
+      <li>
+        <a ui-sref="billableItems">billable Item</a>
+      </li>
+      <li>{{(item._id) ? 'Edit Item' : 'Add Item'}}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content my-dash" data-ng-init="findOneItemInfo();">
+
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <!--my job tabs-->
+            <div class="job-tab">
+              <div>
+                <div class="row">
+
+                  <div class="col-sm-12">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="job1">
+                        <div class="tab-header">
+                          <h2>Billable Item</h2>
+                        </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                            <div class="form-group">
+                              <label class="col-sm-3">Billable Item Name</label>
+                              </label>
+                              <div class="col-sm-9">
+                                <input class="form-control" type="text" name="billable_name" ng-model="item.name" maxlength="50" placeholder="Billing Name"
+                                  required>
+                                <input class="form-control" type="hidden" name="billable_name" ng-model="item.old_name">
+                                <div ng-show="form.$submitted || form.billable_name.$touched">
+                                  <span class="text-danger" ng-show="form.billable_name.$error.required" class="text-danger">
+                                    Please enter billable item name.
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-3">Billable Item Description</label>
+                              </label>
+                              <div class="col-sm-9">
+                                <input class="form-control" type="text" name="billable_description" ng-model="item.description" maxlength="50" placeholder="Billing Description"
+                                  required>
+                                <div ng-show="form.$submitted || form.billable_description.$touched">
+                                  <span class="text-danger" ng-show="form.billable_description.$error.required" class="text-danger">
+                                    Please enter billable item description.
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="box-footer clearfix no-border">
+                              <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled" data-ng-click="addBillableItem(form)">{{(item._id) ? 'Update' : 'Save'}}
+                                <i class="fa fa-spinner fa-spin" ng-if="loader"></i>
+                              </button>
+                              <a href="#/billableItems" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--End my job tabs-->
+              </div>
+              <!-- /.box-body -->
+
+            </div>
+          </div>
+        </div>
+  </section>
+  <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

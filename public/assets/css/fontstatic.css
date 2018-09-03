@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "payrollicon";
+  src:url("../fonts/payrollicon.eot");
+  src:url("../fonts/payrollicon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/payrollicon.woff") format("woff"),
+    url("../fonts/payrollicon.ttf") format("truetype"),
+    url("../fonts/payrollicon.svg#payrollicon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "payrollicon" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "payrollicon" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bar-chart:before {
+  content: "\61";
+}
+.icon-building:before {
+  content: "\62";
+}
+.icon-file:before {
+  content: "\63";
+}
+.icon-users:before {
+  content: "\64";
+}
+.icon-clock:before {
+  content: "\65";
+}
+.icon-money:before {
+  content: "\66";
+}
+.icon-business:before {
+  content: "\67";
+}
+.icon-contrubution-loan:before {
+  content: "\68";
+}
+.icon-other-deduction:before {
+  content: "\69";
+}
+.icon-payroll-jounaral:before {
+  content: "\6a";
+}
+.icon-payslip:before {
+  content: "\6b";
+}
+.icon-allowance:before {
+  content: "\6c";
+}

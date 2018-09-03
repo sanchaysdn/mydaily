@@ -1,0 +1,114 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="">
+    <!-- Main content -->
+    <section class="content my-login">
+        <!-- Your Page Content Here -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="">
+                    <div class="">
+                        <div class="login-box">
+                            <div class="login-logo">
+                                <a href="#"><img src="/admin/images/logo.png" alt=""></a>
+                            </div>
+                            <!-- /.login-logo -->
+                            <div class="login-box-body" id="login-box">
+                                <form role="form" role="form" novalidate name="form">
+                                    <div class="alert alert-danger alert-dismissable" ng-show="error"><i class="fa fa-ban"></i>
+                                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>{{error}}</div>
+
+                                        <div class="form-group has-feedback">
+                                        <input class="form-control" type="text" name="company_name" ng-model="user.company_name" maxlength="50" placeholder="Company Name" required>
+                                        <span class="fa fa-building form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.company_name.$touched">
+                                            <span class="text-danger" ng-show="form.company_name.$error.required" class="text-danger">Please enter company name <span class="text-danger" ng-show="form.company_name.$error.pattern">Invalid company name</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="text" name="firstname" ng-model="user.firstname" maxlength="50" placeholder="First Name" required ng-pattern="/^[a-zA-Z0-9]*$/">
+                                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.firstname.$touched">
+                                            <span class="text-danger" ng-show="form.firstname.$error.required" class="text-danger">Please enter first name <span class="text-danger" ng-show="form.firstname.$error.pattern">Invalid first name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="text" name="lastname" ng-model="user.lastname" maxlength="50" placeholder="Last Name" required ng-pattern="/^[a-zA-Z0-9]*$/">
+                                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.lastname.$touched">
+                                            <span class="text-danger" ng-show="form.lastname.$error.required" class="text-danger">
+                                  Please enter last name
+                                </span>
+                                            <span class="text-danger" ng-show="form.lastname.$error.pattern">Invalid last name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="text" name="email" ng-model="user.email" maxlength="50" placeholder="Email" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/" required>
+                                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.email.$touched">
+                                            <span class="text-danger" ng-show="form.email.$error.required" class="text-danger">
+                                  Please enter email
+                                </span>
+                                            <span class="text-danger" ng-show="form.email.$error.pattern && (form.email.$invalid || form.email.$pristine)">Please enter valid Email</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="text" name="confirmemail" valid-password-c="user.email" ng-model="user.confirmEmail" placeholder="Confirm Email" required>
+                                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.confirmemail.$touched">
+                                            <span class="text-danger" ng-show="form.confirmemail.$error.required" class="text-danger">
+                                  Please enter confirm email
+                                </span>
+                                            <span class="text-danger" ng-show="!form.confirmemail.$error.required && user.email && form.confirmemail.$invalid">Confirm email does not match</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="password" name="newPassword" ng-model="user.newPassword" maxlength="20" placeholder="New Password" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}/" required>
+                                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.newPassword.$touched">
+                                            <span class="text-danger" ng-show="form.newPassword.$error.required" class="text-danger">
+                                  Please enter new password
+                                </span>
+                                            <span class="text-danger" ng-if="form.newPassword.$error.pattern &&  form.newPassword.$invalid" href="">Passwords should be at least 6 characters and contain one capital letter and special character (!@$, or whatever they are).</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input class="form-control" type="password" name="verify" valid-password-c="user.newPassword" ng-model="user.confirmPassword" maxlength="20" placeholder="Confirm Password" required>
+                                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        <div ng-show="form.$submitted || form.verify.$touched">
+                                            <span class="text-danger" ng-show="form.verify.$error.required" class="text-danger">
+                                  Please enter confirm password
+                                </span>
+                                            <span class="text-danger" ng-show="!form.verify.$error.required && user.newPassword && form.verify.$invalid">Confirm password does not match</span>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="row">
+                                        <div class="col-xs-7 col-sm-8">
+                                            <div class="links">
+                                                <a ui-sref="login">Login?</a></p>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-xs-5 col-sm-4">
+                                            <button type="submit" class="btn btn-primary btn-block btn-flat" ng-disabled="disabled" data-ng-click="contractorSignup(form)">Continue<i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                                        </div>
+                                </form>
+                                <!-- /.col -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </div>
+                        <!-- /.login-box-body -->
+                    </div>
+                    <!--Foremen linsting table-->
+                    <!--Foremen linsting table-->
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+</div>
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

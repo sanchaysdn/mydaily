@@ -1,0 +1,121 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header clearfix">
+      <h1>Add Daily Path</h1>
+      <ol class="breadcrumb">
+        <li><a href="#/dailies">Dashboard </a></li>
+        <li><a href="#/job">job</a></li>
+        <li><a >Add Daily Path</a></li>
+      </ol>
+      <h1></h1>
+    </section>
+    
+    <!-- Main content -->
+    <section class="content my-dash" data-ng-init="getSupervisor();getforemanList();matchToken();"> 
+      
+      <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box">
+            <div class="box-body">
+              <!--my job tabs-->
+              <div class="job-tab">
+                <div> 
+                  <div class="row">
+
+                  <div ng-show='Show' ng-include="'/admin/modules/jobs/views/job_leftbar.html'"></div>
+                  
+                 <div class="col-sm-8">
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="job1" >
+                      <div class="tab-header">
+                        <h2>Daily Path</h2>
+                      </div>
+                        <div class="tab-body">
+                          <form role="form" role="form" novalidate name="form" class="form-horizontal">
+                        <div class="form-group">
+                          <label class="col-sm-3">Daily Submission Report to..</label>
+                          <div class="col-sm-9">
+                            <select name="submissionreport" class="form-control" ng-model="dailypath.daily_sumbission_report" required>
+                              <option value="">Select Submission Report to..</option>
+                              <option value="1">Internal Supervisor</option>
+                              <option value="3">None</option>
+                            </select>
+                            <div ng-show="form.$submitted || form.submissionreport.$touched">
+                                <span class="text-danger" ng-show="form.submissionreport.$error.required" class="text-danger">
+                                  Please selct submission report to..
+                              </span>
+                                
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="form-group" ng-if="dailypath.daily_sumbission_report == 1">
+                            <label class="col-sm-3">Select Supervisor</label>
+                                <div class="col-sm-8">
+                                <ol class="nya-bs-select"  name="supervisor" ng-model="dailypath.supervisor" data-live-search="true" title="Selected supervisor {{dailypath.supervisor.length}}" actions-box="true" multiple >
+                                  <li nya-bs-option="option in superVisorList">
+                                    <a>
+                                     {{option.firstname}} {{option.lastname}}
+                                      <span class="glyphicon glyphicon-ok check-mark"></span>
+                                    </a>
+                                  </li>
+                                </ol>
+                                <div ng-show="form.$submitted || form.supervisor.$touched">
+                                  <span class="text-danger" ng-show="form.supervisor.$error.required" class="text-danger">
+                                    Please select supervisor..
+                                  </span>
+                                </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group" ng-if="dailypath.daily_sumbission_report == 1 || dailypath.daily_sumbission_report == 3">
+                            <label class="col-sm-3">Select Foreman</label>
+                                <div class="col-sm-9">
+                                 <ol class="nya-bs-select"  name="foremen" ng-model="dailypath.foremen" 
+                                 data-live-search="true" actions-box="true" multiple selectedTextFormat="3"  title="Selected foremen {{dailypath.foremen.length}}" >
+                                  <li nya-bs-option="option in foremenList">
+                                    <a>
+                                     {{option.firstname}} {{option.lastname}}
+                                      <span class="glyphicon glyphicon-ok check-mark"></span>
+                                    </a>
+                                  </li>
+                                </ol>
+                               
+                               <div ng-show="form.$submitted || form.foremen.$touched">
+                                  <span class="text-danger" ng-show="form.foremen.$error.required" class="text-danger">
+                                    Please select foremen..
+                                  </span>
+                                </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                         <div class="box-footer clearfix no-border" >
+                         <button type="submit" class="btn m_lft5 btn-warning pull-right" ng-disabled="disabled"  data-ng-click="addUpdateDailyPath(form)">{{(job._id) ? 'Update' : 'Save'}} <i class="fa fa-spinner fa-spin" ng-if="loader"></i></button>
+                        <a href="#/job" class="btn m_lft5 btn-primary pull-right">Cancel</a>
+                        </div>
+                       </form>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+              <!--End my job tabs-->
+            </div>
+            <!-- /.box-body --> 
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content --> 
+  </div>
+  <!-- /.content-wrapper --> 
+
+   <!-- <select name="job_assign_to" id="job_assign_to" ng-model="dailypath.job_assign_to" required>
+                              <option ng-repeat="option in superVisorList" value="{{option._id}}">{{option.firstname}} {{option.lastname}}</option>
+                            </select> -->

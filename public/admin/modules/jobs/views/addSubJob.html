@@ -1,0 +1,36 @@
+  <div class="content-wrapper"> 
+    
+<section class="content-header clearfix">
+    <h1>{{(job._id) ? job.job_id : 'Jobs / Sub Jobs'}}</h1>
+       <ol class="breadcrumb">
+        <li><a href="#/dailies">Dashboard </a></li>
+        <li><a href="#/job">job</a></li>
+        <li><a >{{(job._id) ? 'Edit Jobs' : 'New Jobs'}}</a></li>
+      </ol>
+    </section>
+     
+
+
+
+
+
+
+
+
+<div ng-controller="jobController" style="text-align: center" class="container">
+      
+      <h1>Add Project Segment</h1>
+      
+      <div class="form-group" data-ng-repeat="choice in choices">
+        <label for="choice" ng-show="showChoiceLabel(choice)">Choices</label>
+         <button class= "fa fa-plus" ng-show="showAddChoice(choice)" ng-click="addNewChoice(choice)"></button>
+        <button class= "fa fa-minus" ng-click="removeNewChoice($index)"></button> 
+        <input type="text" ng-model="choice.name"  placeholder="Enter Project Segment">
+      </div>
+              
+
+              <button ng-click="saveSubJob()" class="btn m_lft5 btn-warning ng-binding">Save</button>
+<a ng-click="cancelSubjob()" class="btn m_lft5 btn-primary">Cancel</a>
+
+    </div>
+            </div>

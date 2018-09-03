@@ -1,0 +1,170 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+            <span aria-hidden="true">
+                <img src="../assets/images/cross.png" alt="" />
+            </span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Daily Details</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="h6">
+                        <strong>Submission Date</strong>
+                    </td>
+                    <td class="h5">{{dailies.createdAt | date:"MM/dd/yyyy"}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Daily Number</strong>
+                    </td>
+                    <td class="h5">#{{dailies.daily_number}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Supervisor</strong>
+                    </td>
+                    <td class="h5">{{dailies.supervisor_details.firstname ?dailies.supervisor_details.firstname + " " +dailies.supervisor_details.lastname
+                        : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Foreman</strong>
+                    </td>
+                    <td class="h5">{{dailies.foremen_details.firstname ? dailies.foremen_details.firstname + " " + dailies.foremen_details.lastname
+                        : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Operator</strong>
+                    </td>
+                    <td class="h5">{{dailies.crews_details.firstname ?dailies.crews_details.firstname + " " +dailies.crews_details.lastname
+                        : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Job</strong>
+                    </td>
+                    <td class="h5">{{dailies.job_detail.job_id ? dailies.job_detail.job_id : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Client</strong>
+                    </td>
+                    <td class="h5">{{dailies.job_detail.client ? dailies.job_detail.client : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Subcontractor name</strong>
+                    </td>
+                    <td class="h5">{{dailies.job_na ? dailies.job_na : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Ticket number</strong>
+                    </td>
+                    <td class="h5">{{dailies.job_location ?dailies.job_location : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>From Date</strong>
+                    </td>
+                    <td class="h5">{{dailies.from_date| date:"dd-MMM-yyyy"}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>To Date</strong>
+                    </td>
+                    <td class="h5">{{dailies.to_date| date:"dd-MMM-yyyy"}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Status</strong>
+                    </td>
+                    <td class="h5">
+                        <span ng-class="{'label label-warning': dailies.status=='Active'}" ng-if="dailies.status=='Active'">{{dailies.status}}</span>
+                        <span ng-class="{'label label-success': dailies.status=='Accepted'}" ng-if="dailies.status=='Accepted'">{{dailies.status}}</span>
+                        <span ng-class="{'label label-danger': dailies.status=='Rejected'}" ng-if="dailies.status=='Rejected'">{{dailies.status}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>No Production</strong>
+                    </td>
+                    <td class="h5">{{dailies.no_production}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Notes</strong>
+                    </td>
+                    <td class="h5">{{dailies.notes ? dailies.notes : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>reject notes</strong>
+                    </td>
+                    <td class="h5">{{dailies.reject_notes ? dailies.reject_notes : '-'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table" ng-repeat="billableItems in dailies.billable_items">
+            <tbody>
+                <tr>
+                    <td class="h6">
+                        <strong>Billable Items Name</strong>
+                    </td>
+                    <td class="h5"> {{billableItems.name ? billableItems.name : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Billable Items Quantity</strong>
+                    </td>
+                    <td class="h5"> {{billableItems.quantity ? billableItems.quantity : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6">
+                        <strong>Billable Items Description</strong>
+                    </td>
+                    <td class="h5"> {{billableItems.description ?billableItems.description : '-'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="h6">
+                        <strong>GPS Capture</strong>
+                    </td>
+                    <td class="h5">{{dailies.latitude ? 'Yes' : 'No'}}</td>
+                    <td width="100px" height="100px" style="vertical-align:bottom;">
+                        <div class="myClass2">
+                            <ng-map zoom="15" center="-33, 151" ng-if="dailies.latitude">
+                                <marker position="{{dailies.latitude}}, {{dailies.longitude}}" icon="{ url:'/assets/images/gps.png', scaledSize:[32,40], origin: [0,0], anchor: [16,40]}">
+                                </marker>
+                            </ng-map>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <h3>Daily Images</h3>
+                <tr>
+                    <td colspan="2" data-title="'Image'" align="left">
+                        <div class="inciden-img">
+                            <a ng-repeat="dailies_Image in dailies.dailiesImage" class="fancybox" href="/{{dailies_Image.image_path}}">
+                                <img src="/{{dailies_Image.image_path}}" ng-if="dailies_Image.image_path" class="img-circle" height="50" width="50">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

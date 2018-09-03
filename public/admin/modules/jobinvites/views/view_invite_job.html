@@ -1,0 +1,112 @@
+<form novalidate name="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span aria-hidden="true"><img src="../assets/images/cross.png" alt="" /></span></button>
+        <h4 class="modal-title" id="myModalLabel">{{job.job_details.client}}</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <div class="col-md-6 paddL0">
+        </div> -->
+        <h3>Job Details</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="h6"><strong>Job ID</strong></td>
+                    <td class="h5">{{job.job_details.job_id}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Job Unique Id</strong></td>
+                    <td class="h5">{{job.job_details.job_unique_id}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Client</strong></td>
+                    <td class="h5">{{job.job_details.client ? job.job_details.client : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Address</strong></td>
+                    <td class="h5">{{job.job_details.address ? job.job_details.address : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Start Date</strong></td>
+                    <td class="h5">{{job.job_details.start_date ? job.job_details.start_date : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Projected End Date</strong></td>
+                    <td class="h5">{{job.job_details.projected_end_date ? job.job_details.projected_end_date : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Actual End Date</strong></td>
+                    <td class="h5">{{job.job_details.actual_end_date ? job.job_details.actual_end_date : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Job Location</strong></td>
+                    <td class="h5">{{job.job_details.job_location ? job.job_details.job_location : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Client Billing Contact</strong></td>
+                    <td class="h5">{{job.job_details.billing_info.client_billing_contact ? job.job_details.billing_info.client_billing_contact : '-'}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Billing Email</strong></td>
+                    <td class="h5">{{job.job_details.billing_info.billing_email ? job.job_details.billing_info.billing_email : '-'}}</td>
+                </tr>
+                <tr ng-repeat="billableItems in job.job_details.billing_info.billable_items">
+                    <td class="h6"><strong>Billable Items</strong></td>
+                    <td class="h6"> {{billableItems.name}}</td>
+                </tr>
+                <tr>
+                    <td class="h6"><strong>Status</strong></td>
+                    <td class="h5">{{job.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+            <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" class="custom-control-input" ng-model="option.merge_status"><span>Merge with Existing Job?</span>
+            </div>
+                <div ng-if="option.merge_status">
+                    <label class="col-sm-3">Select Job</label>
+                    <div class="col-sm-9">
+                        <select name="user_job" id="user_job" ng-model="option.user_job_id" required>
+                            <option ng-repeat="option in job.jobLists" value="{{option._id}}">{{option.job_id}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" class="custom-control-input" ng-model="option.approval_status"><span>Require Daily Approval from Internal Supervisor?</span>
+            </div>
+             <div  ng-if="option.approval_status">
+              <label class="col-sm-3">Select Supervisor</label>
+                     <div class="col-sm-9">
+                         <ol class="nya-bs-select" name="job_assign_to" id="job_assign_to" ng-model="option.job_assign_to" 
+                         data-live-search="true" actions-box="true" multiple selectedTextFormat="3"  title="Selected supervisor {{option.job_assign_to.length}}" required>
+                          <li nya-bs-option="option in job.supervisor">
+                            <a>
+                             {{option.firstname}} {{option.lastname}}
+                              <span class="glyphicon glyphicon-ok check-mark"></span>
+                            </a>
+                          </li>
+                        </ol>
+                  </div>
+       <!--  <div ng-if="option.approval_status">
+            <label class="col-sm-3">Select Supervisor</label>
+              <div class="col-sm-9">
+               <select name="job_assign_to" id="job_assign_to"  ng-model="option.job_assign_to" required>
+                    <option ng-repeat="option in job.supervisor" value="{{option._id}}">{{option.firstname}} {{option.lastname}}</option>
+
+                </select>
+            </div>
+        </div> -->
+            </div>
+            <div class="modal-footer bottom-btn">
+                <div class="modal-footer bottom-btn" ng-if="job.status == 'Pending'">
+                    <button type="button" class="btn btn-primary btn-orange" data-dismiss="modal" ng-click="accept(job,option)">Accept</button>
+                    <button type="button" class="btn btn-primary btn-orange" data-dismiss="modal" ng-click="reject(job)">Reject</button>
+                </div>
+            </div>
+        </div>
+    
+</form>
